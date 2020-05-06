@@ -11,29 +11,52 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var ship: UIImageView!
+    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var rightButton: UIButton!
     
     var enemies = [[Enemy]]()
     var cdEnemy = 10
+    
+    var cdMissile = 20
+    var missiles = [UIImageView]()
+    var cdFireBolt = 40
+    var fireBolts = [UIImageView]()
     
     var left = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        spawnShip()
+        leftButton.frame = CGRect(x: 0,
+                                  y: ship.frame.origin.y - 40,
+                                  width: view.frame.width * 0.5,
+                                  height: 30)
+        rightButton.frame = CGRect(x: view.frame.width * 0.5,
+                                   y: ship.frame.origin.y - 40,
+                                   width: view.frame.width * 0.5,
+                                   height: 30)
         spawnEnemies()
         
         startTimer()
-        // Do any additional setup after loading the view.
+    }
+    
+    func spawnShip() {
+        ship.frame = CGRect(x: view.frame.width * 0.35,
+                            y: view.frame.height - view.frame.width * 0.3 - CGFloat(25),
+                            width: view.frame.width * 0.3,
+                            height: view.frame.width * 0.3)
     }
     
     func spawnEnemies() {
         for i in 0...3 {
             var enemiesRow = [Enemy]()
             for j in 0...2 {
-                let frame = CGRect(x: view.frame.width * 0.2 * CGFloat(i) + view.frame.width * 0.1,
+                let enemyFrame = CGRect(x: view.frame.width * 0.2 * CGFloat(i) + view.frame.width * 0.1,
                                    y: view.frame.height * 0.05 + view.frame.width * 0.2 * CGFloat(j),
                                    width: view.frame.width * 0.2,
                                    height: view.frame.width * 0.2)
-                let newEnemy = Enemy(frame: frame)
+                let newEnemy = Enemy(frame: enemyFrame)
                 newEnemy.image = #imageLiteral(resourceName: "enemy")
                 view.addSubview(newEnemy)
                 enemiesRow.append(newEnemy)
@@ -46,7 +69,11 @@ class ViewController: UIViewController {
         //if !isGameOver {
         let gameLoopStart = mach_absolute_time()
             
+        shootMissile()
+        changeMissilePosition()
         changeEnemyPosition()
+        shootFireBolt()
+        changeFireBoltPosition()
             
         let gameLoopEnd = mach_absolute_time()
         let dTime = Double(gameLoopStart/1000000000) + Double(1.0/60.0) - Double(gameLoopEnd/1000000000)
@@ -82,11 +109,11 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func buttonLeft(_ sender: UIButton) {
+    @IBAction func onLeft(_ sender: UIButton) {
         changeShipPosition(direction: -1)
     }
  
-    @IBAction func buttonRight(_ sender: UIButton) {
+    @IBAction func onRight(_ sender: UIButton) {
         changeShipPosition(direction: 1)
     }
     
@@ -96,6 +123,71 @@ class ViewController: UIViewController {
             ship.frame.origin.x += dX
         }
     }
+    
+    func shootMissile() {
+        cdMissile += 1
+        
+        if cdMissile >= 20 {
+            let missileFrame = CGRect(x: ship.frame.origin.x + ship.frame.width * 0.4,
+                                      y: ship.frame.origin.y - ship.frame.height * 0.5,
+                                      width: ship.frame.width * 0.2,
+                                      height: ship.frame.width * 0.5)
+            let newMissile = UIImageView(frame: missileFrame)
+            newMissile.image = #imageLiteral(resourceName: "missile")
+            view.addSubview(newMissile)
+            missiles.append(newMissile)
+            cdMissile = 0
+        }
+    }
+    
+    func changeMissilePosition() {
+        for (index, missile) in missiles.enumerated() {
+            missile.frame.origin.y -= 10
+            
+            if missile.frame.origin.y < -missile.frame.height {
+                missiles[index].removeFromSuperview()
+                missiles.remove(at: index)
+            } else {
 
+            for i in 0...3 {
+                for j in 0...2 {
+                    if missile.frame.intersects(enemies[i][j].frame)&&(enemies[i][j].isHidden==false) {
+                      missiles[index].removeFromSuperview()
+                      missiles.remove(at: index)
+                      enemies[i][j].isHidden = true
+                }
+            }
+          }
+        }
+      }
+    }
+
+    func shootFireBolt() {
+        cdFireBolt += 1
+        
+        if cdFireBolt >= 120 {
+            let enemy = enemies[Int.random(in: 0...3)][Int.random(in: 0...2)]
+            let fireBoltFrame = CGRect(x:enemy.frame.origin.x + enemy.frame.width * 0.35,
+                                       y:enemy.frame.origin.y + enemy.frame.width * 0.2,
+                                       width:enemy.frame.width * 0.5,
+                                       height:enemy.frame.width * 0.7)
+            let newFireBolt = UIImageView(frame: fireBoltFrame)
+            newFireBolt.image = #imageLiteral(resourceName: "fireBolt")
+            view.addSubview(newFireBolt)
+            fireBolts.append(newFireBolt)
+            cdFireBolt = 0
+        }
+    }
+    
+    func changeFireBoltPosition() {
+        for (index, fireBolt) in fireBolts.enumerated() {
+            fireBolt.frame.origin.y += 2
+            
+            if fireBolt.frame.origin.y > view.frame.height {
+                fireBolts[index].removeFromSuperview()
+                fireBolts.remove(at: index)
+            }
+        }
+    }
 }
 
