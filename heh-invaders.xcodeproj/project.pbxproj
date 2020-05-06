@@ -15,6 +15,7 @@
 		3F7D647E246311530015041A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F7D647C246311530015041A /* LaunchScreen.storyboard */; };
 		3F7D648624631FA20015041A /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D648524631FA20015041A /* StartViewController.swift */; };
 		3F7D648A246325ED0015041A /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D6489246325ED0015041A /* Enemy.swift */; };
+		3FCA1D9524635AF00069BC3B /* GameStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCA1D9424635AF00069BC3B /* GameStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3F7D647F246311530015041A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F7D648524631FA20015041A /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		3F7D6489246325ED0015041A /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		3FCA1D9424635AF00069BC3B /* GameStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				3F7D647F246311530015041A /* Info.plist */,
 				3F7D648524631FA20015041A /* StartViewController.swift */,
 				3F7D6489246325ED0015041A /* Enemy.swift */,
+				3FCA1D9424635AF00069BC3B /* GameStorage.swift */,
 			);
 			path = "heh-invaders";
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F7D6476246311520015041A /* ViewController.swift in Sources */,
+				3FCA1D9524635AF00069BC3B /* GameStorage.swift in Sources */,
 				3F7D648A246325ED0015041A /* Enemy.swift in Sources */,
 				3F7D648624631FA20015041A /* StartViewController.swift in Sources */,
 				3F7D6472246311520015041A /* AppDelegate.swift in Sources */,

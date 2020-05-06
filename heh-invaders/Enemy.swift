@@ -10,6 +10,6 @@ import Foundation
 import UIKit
 
 class Enemy: UIImageView {
-    //let hp: Int = 1
-    //let cost: Int = 1
+    var hp: Int = 1
+    var cost: Int = 1
 }
