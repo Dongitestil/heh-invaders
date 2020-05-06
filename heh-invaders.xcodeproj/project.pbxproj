@@ -13,6 +13,7 @@
 		3F7D6479246311520015041A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F7D6477246311520015041A /* Main.storyboard */; };
 		3F7D647B246311530015041A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7D647A246311530015041A /* Assets.xcassets */; };
 		3F7D647E246311530015041A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F7D647C246311530015041A /* LaunchScreen.storyboard */; };
+		3F7D648624631FA20015041A /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D648524631FA20015041A /* StartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3F7D647A246311530015041A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F7D647D246311530015041A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F7D647F246311530015041A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F7D648524631FA20015041A /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				3F7D647A246311530015041A /* Assets.xcassets */,
 				3F7D647C246311530015041A /* LaunchScreen.storyboard */,
 				3F7D647F246311530015041A /* Info.plist */,
+				3F7D648524631FA20015041A /* StartViewController.swift */,
 			);
 			path = "heh-invaders";
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F7D6476246311520015041A /* ViewController.swift in Sources */,
+				3F7D648624631FA20015041A /* StartViewController.swift in Sources */,
 				3F7D6472246311520015041A /* AppDelegate.swift in Sources */,
 				3F7D6474246311520015041A /* SceneDelegate.swift in Sources */,
 			);
