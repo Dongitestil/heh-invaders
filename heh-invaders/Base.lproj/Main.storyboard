@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1yN-lT-mv3">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -10,30 +10,56 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="heh_invaders" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="heh_invaders" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="rvW-F3-O0i">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ship-probably" translatesAutoresizingMaskIntoConstraints="NO" id="ojs-5D-JjH">
-                                <rect key="frame" x="148.5" y="705" width="117" height="132"/>
+                                <rect key="frame" x="115" y="353" width="90" height="102"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ojs-5D-JjH" secondAttribute="height" multiplier="39:44" id="iJz-02-Rpk"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oq2-Gd-wY3">
+                                <rect key="frame" x="160" y="295" width="160" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Right">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonRight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pki-gI-alN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hS4-H2-V7j">
+                                <rect key="frame" x="0.0" y="295" width="160" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Left">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonLeft:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xMM-EN-cQf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ojs-5D-JjH" secondAttribute="bottom" constant="25" id="3oy-WA-xyX"/>
                             <constraint firstItem="rvW-F3-O0i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7ny-Xw-1Go"/>
                             <constraint firstItem="ojs-5D-JjH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.282609" id="EWJ-5x-lgi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oq2-Gd-wY3" secondAttribute="trailing" id="Nk8-ZE-42G"/>
                             <constraint firstAttribute="trailing" secondItem="rvW-F3-O0i" secondAttribute="trailing" id="QLh-Uh-S60"/>
                             <constraint firstItem="ojs-5D-JjH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xft-ug-b3g"/>
                             <constraint firstAttribute="bottom" secondItem="rvW-F3-O0i" secondAttribute="bottom" id="b5x-Jz-Zzf"/>
+                            <constraint firstItem="hS4-H2-V7j" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="fGn-Bl-Br6"/>
+                            <constraint firstItem="ojs-5D-JjH" firstAttribute="top" secondItem="hS4-H2-V7j" secondAttribute="bottom" constant="10" id="hhB-A9-AGh"/>
+                            <constraint firstItem="oq2-Gd-wY3" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="iy9-OT-27U"/>
+                            <constraint firstItem="ojs-5D-JjH" firstAttribute="top" secondItem="oq2-Gd-wY3" secondAttribute="bottom" constant="10" id="mas-KY-JtE"/>
                             <constraint firstItem="rvW-F3-O0i" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="s9c-dv-aCy"/>
+                            <constraint firstItem="hS4-H2-V7j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zCc-jB-iNu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -50,38 +76,38 @@
             <objects>
                 <viewController id="1yN-lT-mv3" customClass="StartViewController" customModule="heh_invaders" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z5T-Gx-8SX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="p1b-if-lKx">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HEH" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="30" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gjB-e6-Z3g">
-                                <rect key="frame" x="0.0" y="400.5" width="414" height="95"/>
+                                <rect key="frame" x="0.0" y="214.5" width="320" height="51"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="100"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest heh" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="20" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W7m-kw-F7q">
-                                <rect key="frame" x="0.0" y="84" width="414" height="48"/>
+                                <rect key="frame" x="0.0" y="40" width="320" height="25.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="20" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9LN-9T-VH2">
-                                <rect key="frame" x="0.0" y="142" width="414" height="48"/>
+                                <rect key="frame" x="0.0" y="75.5" width="320" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fe-I3-E8P">
-                                <rect key="frame" x="0.0" y="495.5" width="414" height="366.5"/>
+                                <rect key="frame" x="0.0" y="265.5" width="320" height="214.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <state key="normal" title="Start heh">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="CCD-bi-8x0"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="CCD-bi-8x0"/>
                                 </connections>
                             </button>
                         </subviews>
