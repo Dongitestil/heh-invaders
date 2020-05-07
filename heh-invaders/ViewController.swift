@@ -56,6 +56,23 @@ class ViewController: UIViewController {
         startTimer()
     }
     
+    func hideGameLayout(isHidden: Bool) {
+        ship.isHidden = true
+        leftButton.isHidden = true
+        rightButton.isHidden = true
+        for i in 0...3 {
+            for j in 0...2 {
+                enemies[i][j].removeFromSuperview()
+            }
+        }
+        for missile in missiles {
+            missile.isHidden = true
+        }
+        for fireBolt in fireBolts {
+            fireBolt.isHidden = true
+        }
+    }
+    
     func toggleResultLayout(isHidden: Bool) {
         gameStatusLabel.isHidden = isHidden
         scoreTitle.isHidden = isHidden
@@ -178,7 +195,6 @@ class ViewController: UIViewController {
                     if missile.frame.intersects(enemies[i][j].frame)&&(enemies[i][j].isHidden==false) {
                         enemies[i][j].hp -= 1
                         if enemies[i][j].hp < 1 {
-                            print(index)
                             missiles[index].removeFromSuperview()
                             missiles.remove(at: index)
                             enemies[i][j].isHidden = true
@@ -236,7 +252,9 @@ class ViewController: UIViewController {
         gameStatusLabel.text = status
         scoreLabel.text = String(game.score)
         highScoreLabel.text = String(game.highScore)
+        hideGameLayout(isHidden: true)
         toggleResultLayout(isHidden: false)
+        game.save()
     }
     
     func nextLvL(){

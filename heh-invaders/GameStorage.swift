@@ -13,10 +13,20 @@ class GameStorage{
     var highScore = 0
     var enemiesAlive = 12
     
+    var storage = UserDefaults.standard
+    
+    init(){
+        self.highScore = storage.integer(forKey: "HighestHeh")
+    }
+    
     func saveScore(scr: Int){
         score += scr
         if score > highScore{
             highScore = score
-        }
+        }  
+    }
+    
+    func save() {
+        storage.set(highScore, forKey: "HighestHeh")
     }
 }
